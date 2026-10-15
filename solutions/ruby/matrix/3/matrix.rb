@@ -1,0 +1,24 @@
+class Matrix
+
+  private
+
+  attr_writer :rows, :columns
+
+  def initialize(text)
+    self.rows = text.lines.map { |row| row.split.map(&:to_i) }
+    self.columns = rows.transpose
+  end
+
+  public
+
+  attr_reader :rows, :columns
+
+  def row(index)
+    rows[index - 1]
+  end
+
+  def column(index)
+    columns[index - 1]
+  end
+
+end
